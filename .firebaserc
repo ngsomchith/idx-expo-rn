@@ -1,0 +1,11 @@
+{
+  "projects": {
+    "default": "sellerapp-5e38d",
+    "livraisonrepas": "livraison-repas-toulon",
+    "udexalgo": "udexalgo",
+    "livraison-app": "livraison-repas-toulon-app",
+    "sellerapp": "sellerapp-5e38d"
+  },
+  "targets": {},
+  "etags": {}
+}
