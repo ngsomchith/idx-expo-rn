@@ -1,50 +1,25 @@
 import React from 'react';
-import { View, Image, ScrollView } from 'react-native';
-import { ThemedView } from './ThemedView';
-import { ThemedTitle } from './ThemedTitle'; // Assurez-vous d'importer ThemedTitle
-import { ThemedText } from './ThemedText'; // Assurez-vous d'importer ThemedText
-import { Button } from 'react-native-elements'; // Ou votre composant Button préféré
+import { ArticleList } from './ShowArticles';
 
-export const ArticleCard = ({ title, imageUrl, text, onActionPress }) => {
+const ArticlesToShow = () => {
+  const articles = [
+    {
+      title: "Article 1",
+      imageUrl: "/home/user/idx-expo-rn/assets/images/image 1achete 1offert.png",
+      text: "Content for article 1",
+      onActionPress: () => { /* Handle action for article 1 */ },
+    },
+    {
+      title: "Article 2",
+      imageUrl: "https://example.com/image2.jpg",
+      text: "Content for article 2",
+      onActionPress: () => { /* Handle action for article 2 */ },
+    },
+    // Add more articles as needed
+  ];
   return (
-    <ThemedView style={styles.cardContainer}>
-      <ThemedTitle type="title" style={styles.title}>
-        {title}
-      </ThemedTitle>
-      <Image source={{ uri: imageUrl }} style={styles.image} />
-      <ThemedText style={styles.text}>{text}</ThemedText>
-      <Button title="Action" onPress={onActionPress} />
-    </ThemedView>
+    <ArticleList articles={articles} />
   );
 };
 
-export const ArticleList = ({ articles }) => {
-  return (
-    <ScrollView>
-      {articles.map((article, index) => (
-        <ArticleCard key={index} {...article} />
-      ))}
-    </ScrollView>
-  );
-};
-
-const styles = {
-  cardContainer: {
-    padding: 20,
-    margin: 10,
-    borderRadius: 10,
-    backgroundColor: 'white', // Couleur de fond par défaut
-  },
-  title: {
-    marginBottom: 10,
-  },
-  image: {
-    width: '100%',
-    height: 200,
-    resizeMode: 'cover',
-    marginBottom: 10,
-  },
-  text: {
-    marginBottom: 10,
-  },
-};
+export default ArticlesToShow;

@@ -5,6 +5,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { ThemedTitle } from '@/components/ThemedTitle';
+import ArticlesToShow from '@/components/ArticlesToShow';
 
 export default function HomeIndex() {
 
@@ -76,6 +77,10 @@ export default function HomeIndex() {
         <ThemedTitle type="subtitle">Un site simple et facile à retenir :</ThemedTitle>
         <ThemedText type="defaultSemiBold">👉 livraison-repas-toulon.fr</ThemedText>
 
+      </ThemedView>
+
+      <ThemedView style={styles.stepContainer}>
+        <ArticlesToShow />
       </ThemedView>
     </ParallaxScrollView>
   );
