@@ -7,7 +7,7 @@ import { ThemedView } from '@/components/ThemedView';
 import { ThemedTitle } from '@/components/ThemedTitle';
 
 export default function HomeIndex() {
-  
+
   return (
     <ParallaxScrollView //background image
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -19,8 +19,11 @@ export default function HomeIndex() {
       }>
 
       <ThemedView style={styles.titleContainer}>
-        <ThemedTitle type="title">Faites livrer vos repas à TOULON</ThemedTitle>
+        <ThemedTitle type="title">Faites livrer vos repas à TOULON
+        
+        </ThemedTitle>
         <HelloWave />
+
       </ThemedView>
 
       <ThemedView style={styles.stepContainer}>
