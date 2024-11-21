@@ -1,24 +1,25 @@
 import React from 'react';
 import { ArticleList } from './ShowArticles';
 
-const ArticlesToShow = () => {
-  const articles = [
+const ArticlesToShow = ({  }) => {
+  const articles0 = [
     {
-      title: "Article 1",
-      imageUrl: "/home/user/idx-expo-rn/assets/images/image 1achete 1offert.png",
+      title: "Article 11",
+      // imageUrl: "https://delicatessen.cloud/Html_images/poke-thon-saumon-delicatessen.webp",
+      imageUrl: "livreur",
       text: "Content for article 1",
       onActionPress: () => { /* Handle action for article 1 */ },
     },
     {
-      title: "Article 2",
-      imageUrl: "https://example.com/image2.jpg",
+      title: "Article 22",
+      imageUrl: "image1achete1offert",
       text: "Content for article 2",
       onActionPress: () => { /* Handle action for article 2 */ },
     },
     // Add more articles as needed
   ];
   return (
-    <ArticleList articles={articles} />
+    <ArticleList articles={articles0} />
   );
 };
 
