@@ -57,20 +57,24 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 24,
     fontWeight: '600',
+    paddingHorizontal: 10
   },
   title: {
-    fontSize: 32,
+    fontSize: 26,
     fontWeight: 'bold',
     lineHeight: 32,
+    paddingHorizontal: 10
   },
   subtitle: {
     fontSize: 20,
     fontWeight: 'bold',
+    paddingHorizontal: 10
   },
   link: {
     lineHeight: 30,
     fontSize: 16,
     color: '#0a7ea4',
+    paddingHorizontal: 10
   },
 });
 // // 

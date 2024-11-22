@@ -1,15 +1,27 @@
 import type { PropsWithChildren, ReactElement } from 'react';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, useWindowDimensions } from 'react-native';
 import Animated, {
   interpolate,
   useAnimatedRef,
   useAnimatedStyle,
   useScrollViewOffset,
 } from 'react-native-reanimated';
-
-import { ThemedView } from '@/components/ThemedView';
+const device = {
+  height: useWindowDimensions().height,
+  // width: useWindowDimensions().width,
+  // header: 100,
+  // bottom: 70,
+  // footer: 70,
+  // heightBody: useWindowDimensions().height - 200,
+  // myCoeffScreen : useWindowDimensions().width / useWindowDimensions().height,
+  // myMAXWIDTH : useWindowDimensions().width, 
+  // myMAXWIDTH1_3 : useWindowDimensions().width / 3
+};
 import { useBottomTabOverflow } from '@/components/ui/TabBarBackground';
 import { useColorScheme } from '@/hooks/useColorScheme';
+import ThisDevice from '@/constants/ThisDevice';
+import { ThemedView } from './ThemedView';
+import { ThemedText } from './ThemedText';
 
 const HEADER_HEIGHT = 250;
 
@@ -23,6 +35,7 @@ export default function ParallaxScrollView({
   headerImage,
   headerBackgroundColor,
 }: Props) {
+  const myDevice = ThisDevice;
   const colorScheme = useColorScheme() ?? 'light';
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
   const scrollOffset = useScrollViewOffset(scrollRef);
@@ -59,6 +72,8 @@ export default function ParallaxScrollView({
           ]}>
           {headerImage}
         </Animated.View>
+
+        {/* <Text style={styles.text}>Background</Text> */}
         <ThemedView style={styles.content}>{children}</ThemedView>
       </Animated.ScrollView>
     </ThemedView>
@@ -70,13 +85,23 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    height: HEADER_HEIGHT,
+    // height: HEADER_HEIGHT,
+    height: device.height,
     overflow: 'hidden',
   },
   content: {
+    backgroundColor: 'transparent',
     flex: 1,
     padding: 32,
     gap: 16,
     overflow: 'hidden',
+  },
+  text: {
+    color: 'white',
+    fontSize: 42,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    // backgroundColor: '#000000a0',
+    backgroundColor: 'transparent',
   },
 });

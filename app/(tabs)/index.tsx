@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform, ScrollView } from 'react-native';
+import { Image, StyleSheet, Platform, ScrollView, View } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -9,147 +9,137 @@ import { ArticleList } from '@/components/ShowArticles';
 import ArticlesToShow from '@/components/ArticlesToShow';
 import { useEffect, useState } from 'react';
 import { Button } from 'react-native-elements'; // Ou votre composant Button préféré
-import images from '@/components/images';
+import { ExternalLink } from '@/components/ExternalLink';
+import BackgroundImage from '@/components/BackGroundImage';
+
 
 export default function HomeIndex() {
-  const articles0 = [
-    {
-      title: "Article 11",
-      // imageUrl: "https://delicatessen.cloud/Html_images/poke-thon-saumon-delicatessen.webp",
-      imageUrl: "livreur",
-      text: "Content for article 1",
-      onActionPress: () => { /* Handle action for article 1 */ },
-    },
-    {
-      title: "Article 22",
-      imageUrl: "image1achete1offert",
-      text: "Content for article 2",
-      onActionPress: () => { /* Handle action for article 2 */ },
-    },
-    // Add more articles as needed
-  ];
-  
-  // const ArticleList = ({ articles }) => {
 
+  // const MyComponent = () => {
+  //   const { isSmallScreen } = useMediaQuery({
+  //     queries: {
+  //       smallScreen: '(max-width: 768px)',
+  //     },
+  //   });
+  
   //   return (
-  //     <ScrollView>
-  //       {articles.map((article, index) => (
-  //         <ArticleCard key={index} {...article} />
-  //       ))}
-  //     </ScrollView>
+  //     <View style={[styles.container, isSmallScreen && styles.smallScreen]}>
+  //       {/* Your content */}
+  //     </View>
   //   );
   // };
-
-  // const ArticleCard = ({ title, imageUrl, text, onActionPress }) => {
-  //   // let myImage = '../../assets/images/image-1achete-1offert.png'
-  //   // let myImage = imageUrl
-  //   // let imageUrl0 = imageUrl.toString()
-  //   const myImage = '../../assets/images/image-1achete-1offert.png'
-
-  //   // const myImage= imageUrl
   
-  //   useEffect(()=>{
-  //     // setMyImage(imageUrl0)
-  //     console.log("imageUrl ", imageUrl)
-  //   }, imageUrl)
-  //   return (
-  //     <ThemedView style={styles.cardContainer}>
-  //       <ThemedTitle type="title" style={styles.text}>
-  //         {title}
-  //       </ThemedTitle>
-  
-  //       <ThemedText style={styles.text}>{imageUrl === myImage ? 'Y':'N' }</ThemedText>
-  //       <ThemedText style={styles.text}>{typeof(imageUrl) + imageUrl.toString() }</ThemedText>
-  
-       
-  //       <Image source={images.livreur}/>
+  // const styles = StyleSheet.create({
+  //   container: {
+  //     // Default styles
+  //   },
+  //   smallScreen: {
+  //     // Styles for small screens
+  //   },
+  // });
 
-  //       <Button title="Action" onPress={onActionPress} />
-  //     </ThemedView>
-  //   );
-  // };
 
   return (
+    // <ExternalLink href="https://docs.expo.dev/router/introduction">
+    //   <ThemedText type="link">Learn more</ThemedText>
+    // </ExternalLink>
     <ParallaxScrollView //background image
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
-        <Image
-          source={require('@/assets/images/livreurs-a-TOULON.webp')}
-          style={styles.reactLogo}
-        />
+         <BackgroundImage />
+       // <Image
+       //   source={require('@/assets/images/livreurs-a-TOULON.webp')}
+       //   style={styles.reactLogo}
+       // />
       }>
 
-      <ThemedView style={styles.titleContainer}>
-        <ThemedTitle type="title">Faites livrer vos repas à TOULON
-        
-        </ThemedTitle>
-        <HelloWave />
+      <View style={styles.pageContainer}>
 
-      </ThemedView>
+        <ThemedView style={styles.titleContainer}>
+          <ThemedTitle type="title">Faites livrer vos repas à TOULON
 
-      <ThemedView style={styles.stepContainer}>
-        <ThemedTitle type="subtitle">Savourez votre expérience gourmande dans cette ville aux multiples saveurs !</ThemedTitle>
-        
+          </ThemedTitle>
+          <HelloWave />
+
+        </ThemedView>
+
+        <ThemedView style={styles.stepContainer}>
+          <ThemedTitle type="subtitle">Savourez votre expérience gourmande dans cette ville aux multiples saveurs !</ThemedTitle>
+
 
           <ThemedText type="defaultSemiBold">Vous pouvez faire des économies </ThemedText>
 
-          <ThemedText>tout en soutenant {' '}
+          <ThemedText type="default">tout en soutenant {' '}
 
-          <ThemedText type="defaultSemiBold">
-          vos restaurateurs locaux ! {' '}
+            <ThemedText type="defaultSemiBold">
+              vos restaurateurs locaux ! {' '}
+            </ThemedText>
           </ThemedText>
+          <ThemedText type="default">
+            {/* <ThemedText type="defaultSemiBold">
+              {Platform.select({
+                ios: 'cmd + d',
+                android: 'cmd + m',
+                web: 'F12'
+              })}
+            </ThemedText>{' '} */}
+            <ThemedText type="defaultSemiBold">
+              Commandez vos plats préférés {' '}
+            </ThemedText >
+            directement auprès des restaurateurs
+            et profitez {' '}
+            <ThemedText type="defaultSemiBold">
+              des tarifs avantageux, {' '}
+            </ThemedText>
+
+            sans intermédiaires ni frais cachés.
           </ThemedText>
-        <ThemedText>
-          {/* <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12'
-            })}
-          </ThemedText>{' '} */}
-          <ThemedText type="defaultSemiBold">
-            Commandez vos plats préférés {' '}
+
+        </ThemedView>
+        <ThemedView style={styles.stepContainer} >
+          <ThemedTitle type="subtitle">🍕🍣🍔 Des saveurs pour tous les goûts, à prix malin !</ThemedTitle>
+
+        </ThemedView>
+
+        <ThemedView style={styles.stepContainer}>
+          <ThemedText type="defaultSemiBold">📍 Livraison rapide à Toulon et alentours.</ThemedText>
+          <ThemedText type="default">
+            Découvrez, commandez, dégustez : c'est bon pour vous et pour votre portefeuille ! 🥂✨
           </ThemedText>
-          directement auprès des restaurateurs
-          et profitez {' '}
-          <ThemedText type="defaultSemiBold">
-          des tarifs avantageux, {' '}
-          </ThemedText>
-           
-          sans intermédiaires ni frais cachés.
-        </ThemedText>
-
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedTitle type="subtitle">🍕🍣🍔 Des saveurs pour tous les goûts, à prix malin !</ThemedTitle>
-
-      </ThemedView>
-
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="defaultSemiBold">📍 Livraison rapide à Toulon et alentours.</ThemedText>
-        <ThemedText>
-          Découvrez, commandez, dégustez : c'est bon pour vous et pour votre portefeuille ! 🥂✨
-        </ThemedText>
-      </ThemedView>
+        </ThemedView>
 
 
-      <ThemedView style={styles.stepContainer}>
-        <ThemedTitle type="subtitle">Un site simple et facile à retenir :</ThemedTitle>
-        <ThemedText type="defaultSemiBold">👉 livraison-repas-toulon.fr</ThemedText>
+        <ThemedView style={styles.stepContainer}>
+          <ThemedTitle type="subtitle">Un site simple et facile à retenir :</ThemedTitle>
+          <ThemedText type="defaultSemiBold">👉 livraison-repas-toulon.fr</ThemedText>
 
-      </ThemedView>
+        </ThemedView>
 
-      <ThemedView style={styles.stepContainer}>
-        {/* <ArticlesToShow  /> */}
-        {/* <ArticleList /> */}
-        <ArticleList articles={articles0} />
-      </ThemedView>
+        <ThemedView style={styles.stepContainer}>
+          <ArticlesToShow />
+          {/* <ArticleList /> */}
+          {/* <ArticleList articles={articles0} /> */}
+        </ThemedView>
+      </View>
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
+  pageContainer: {
+    backgroundColor: 'transparent',
+    height: '100%',
+    width: '100%',
+    paddingHorizontal:'10%',
+    position: 'relative',
+    borderColor: 'white', borderStyle: 'solid', borderWidth: 2,
+  },
   titleContainer: {
+    borderColor: 'yellow', borderStyle: 'solid', borderWidth: 5,
+    // position:'absolute',
+    // top: 0,
+    // left: 0,
+    zIndex: 99999,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
@@ -163,7 +153,7 @@ const styles = StyleSheet.create({
     width: '100%',
     bottom: 0,
     left: 0,
-    position: 'absolute',
+    // position: 'absolute',
   },
   cardContainer: {
     padding: 20,
@@ -174,5 +164,8 @@ const styles = StyleSheet.create({
   text: {
     marginBottom: 10,
     color: 'grey'
-  },
-});
+  }
+
+
+}
+);
